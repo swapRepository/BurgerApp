@@ -8,22 +8,22 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BurgerApp.Controllers
 {
-   
+    [Route("[controller]")]
     public class HomeController:Controller
     {
-        public IActionResult Index()
+        private Burger _data;
+        public HomeController(IData data)
+        {
+             _data = data.GetData();
+        }
+
+        [Route("[action]")]
+        public IActionResult Index(int id)
         {
             HomeIndexViewModel viewModel = new HomeIndexViewModel()
             {
                 Title = "Index",
-                Burger = new Burger()
-                {
-                    Name = "VegBurger",
-                    Quantity = 1,
-                    ExtraCheese = false
-                }
-
-
+                Burger =_data
             };
             return View(viewModel);
         }

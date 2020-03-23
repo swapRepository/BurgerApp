@@ -1,4 +1,24 @@
 ﻿@model HomeIndexViewModel
 
-@Model.Burger.Name
+    <div class="container">
+        <h2>Orders</h2>
+      <table class="table">
+            <thead>
+                <tr>
+                    <th>Burger Type</th>
+                    <th>Quantity</th>
+                    <th>Cheese</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Burger.Name</td>
+                    <td>@Model.Burger.Quantity</td>
+                    <td>@Model.Burger.ExtraCheese</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
 
