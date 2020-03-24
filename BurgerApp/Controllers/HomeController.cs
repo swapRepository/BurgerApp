@@ -8,15 +8,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BurgerApp.Controllers
 {
+    
     [Route("[controller]")]
     public class HomeController:Controller
     {
         private Burger _data;
         public HomeController(IData data)
+
         {
              _data = data.GetData();
         }
 
+       
         [Route("[action]")]
         public IActionResult Index(int id)
         {
